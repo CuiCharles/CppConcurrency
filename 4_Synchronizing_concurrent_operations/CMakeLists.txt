@@ -7,7 +7,7 @@ project (TestChapter4)
 set (Demo_VERSION_MAJOR 1)
 set (Demo_VERSION_MINOR 0)
 
-//支持c++11特性
+#支持c++11特性
 SET(CMAKE_C_COMPILER g++)
 add_compile_options(-std=c++11)
 
@@ -30,11 +30,11 @@ endif (NOT HAVE_POW)
 
 # 查找当前目录下的所有源文件
 # 并将名称保存到 DIR_SRCS 变量
-aux_source_directory(. DIR_SRCS)
+#aux_source_directory(. DIR_SRCS)
 
 
 # 指定生成目标
-add_executable(chapter4 ${DIR_SRCS})
+add_executable(chapter4 main2.cpp)
 
 # 确定外部链接库
 # target_link_libraries (Demo  ${EXTRA_LIBS})

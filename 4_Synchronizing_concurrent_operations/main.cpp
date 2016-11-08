@@ -4,6 +4,7 @@
 #include <queue>
 #include <vector>
 #include <condition_variable>
+#include "thread_safe_queue.h"
 
 /*
 	std::condition_variable and std::condition_variable_any are both declared in <condition_variable> 
@@ -69,6 +70,8 @@ void data_processing_thread()
 	while(true)
 	{
 		std::unique_lock<std::mutex> lk(mut);
+		//first lock, then check. If the condition is not satisfied,unlocking the mutex and waiting(blocked).
+		//otherwise, continue the locking status and go on.
 		data_cond.wait(lk, []{ return !data_queue.empty();});
 		int data = data_queue.front();
 		data_queue.pop();
