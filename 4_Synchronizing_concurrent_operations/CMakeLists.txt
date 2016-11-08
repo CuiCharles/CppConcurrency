@@ -34,7 +34,7 @@ endif (NOT HAVE_POW)
 
 
 # 指定生成目标
-add_executable(chapter4 main_threadsafeqeue.cpp)
+add_executable(chapter4 main_threadsafequeue.cpp)
 
 # 确定外部链接库
 # target_link_libraries (Demo  ${EXTRA_LIBS})
